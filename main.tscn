@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxv6v7bmdsc1t"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_nusra"]
+[ext_resource type="PackedScene" uid="uid://drmkl62o6ysjj" path="res://fan.tscn" id="2_d4nne"]
+[ext_resource type="Texture2D" uid="uid://c6mipev2ngvbu" path="res://Assets/ps3-screen.png" id="2_vep0f"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kd34g"]
+panorama = ExtResource("2_vep0f")
+
+[sub_resource type="Sky" id="Sky_0hoss"]
+sky_material = SubResource("PanoramaSkyMaterial_kd34g")
+
+[sub_resource type="Environment" id="Environment_o3oyr"]
+background_mode = 2
+background_color = Color(0.423529, 0.607843, 1, 1)
+sky = SubResource("Sky_0hoss")
+sky_custom_fov = 152.0
+sky_rotation = Vector3(3.48787e-16, -3.71232, 3.48787e-16)
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 6.88
+glow_bloom = 0.06
+fog_enabled = true
+fog_light_color = Color(0.792157, 0.345098, 0.764706, 1)
+fog_light_energy = 0.34
+fog_sun_scatter = 0.24
+fog_aerial_perspective = 0.002
+fog_sky_affect = 0.16
+fog_height = 2.13163e-14
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_nusra")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.627, 2.08165e-12, 211.284)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o3oyr")
+
+[node name="Fan" parent="." instance=ExtResource("2_d4nne")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.732091, 0, 0.681207, 0, 1, 0, -0.681207, 0, -0.732091, 591.117, -3.61066, 1140.17)
+light_energy = 0.597
